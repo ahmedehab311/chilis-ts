@@ -6,27 +6,28 @@ import SectionSwiper from "./sectionSwiper";
 import ItemCard from "./itemCard";
 
 export default function MenuPage() {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ["menu"],
-        queryFn: fetchMenu
+    const {
+        data: menuItems = [],
+        isLoading: loading,
+        error,
+    } = useQuery({
+        queryKey: ["menuItems"],
+        queryFn: fetchMenu,
+        refetchOnWindowFocus: false,
     });
+
 
     const [selectedSection, setSelectedSection] = useState<number | null>(null);
 
-    if (isLoading) return <div>Loading...</div>;
-    if (isError) return <div>Error fetching menu</div>;
-
-    const sections = data.sections;
-
     const activeItems =
-        sections.find((s) => s.id === selectedSection)?.items || [];
+        menuItems.find((s) => s.id === selectedSection)?.items || [];
 
     return (
         <div className="space-y-6">
 
             {/* ==== Sections Swiper ==== */}
             <SectionSwiper
-                sections={sections}
+                sections={menuItems}
                 onSelect={setSelectedSection}
             />
 

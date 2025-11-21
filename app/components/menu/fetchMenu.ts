@@ -6,10 +6,23 @@ export async function fetchMenu() {
         headers: { "Content-Type": "application/json" },
         cache: "no-store",
     });
-
+    const sections = res?.data?.data.menu[0].sections || [];
     if (!res.ok) {
         throw new Error("Failed to fetch menu");
     }
 
-    return res.json();
+    return sections;
 }
+
+
+// export const fetchData = async () => {
+//     try {
+//         const response = await axios.get(APIURL);
+//         const sections = response.data.data.menu[0].sections || [];
+
+//         return sections;
+//     } catch (error) {
+//         console.error("Error fetching data: ", error);
+//         throw error;
+//     }
+// };

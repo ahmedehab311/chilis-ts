@@ -1,7 +1,7 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import localFont from "next/font/local";
-
+import QueryProvider from "@/providers/queryProvider";
 const cairo = localFont({
   src: "./fonts/cairo/Cairo-VariableFont_slnt,wght.ttf",
   weight: "200 900",
@@ -49,7 +49,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${cairo.variable} ${brother.variable}`}>
-      <body>{children}</body>
+      <body>
+        <QueryProvider>
+          {children}
+        </QueryProvider></body>
     </html>
   );
 }
