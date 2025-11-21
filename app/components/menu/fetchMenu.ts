@@ -6,7 +6,7 @@ export async function fetchMenu() {
         headers: { "Content-Type": "application/json" },
         cache: "no-store",
     });
-    const sections = res?.data?.data.menu[0].sections || [];
+    const sections = res?.data?.data?.menu[0]?.sections || [];
     if (!res.ok) {
         throw new Error("Failed to fetch menu");
     }
