@@ -121,13 +121,33 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
 @layer utilities {
-  .bg-chiliRed { background-color: rgb(231, 35, 35); }
-  .text-chiliWhite { color: #ffffff; }
-  .text-chiliBlack { color: #000; }
-  .bg-darkBlue { background-color: rgb(34, 35, 91) }
+  .bg-chiliRed {
+    background-color: rgb(231, 35, 35);
+  }
+
+  .text-chiliWhite {
+    color: #ffffff;
+  }
+
+  .text-chiliBlack {
+    color: #000;
+  }
+
+  .bg-darkBlue {
+    background-color: rgb(34, 35, 91)
+  }
+}
+
+@layer components {
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: red !important;
+  }
 }
