@@ -1,10 +1,11 @@
-interface MenuItemProps { 
-    name:string;
-    className?:string
+interface MenuItemProps {
+    name: string;
+    className?: string
+    children: React.ReactNode
 }
 
-export default function MenuItem({ name ,className}:MenuItemProps) {
+export default function MenuItem({ name, children, className }: MenuItemProps) {
     return (
-        <p className={`font-brother text-lg ${className || ''}`}>{name}</p>
+        <p className={`font-brother text-lg text-black ${className || ''}`}>{name}{children}</p>
     )
 }

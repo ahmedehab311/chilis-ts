@@ -1,3 +1,3 @@
 export { default as Title } from "./title"
-export { default as MenuItem } from "./MenuItem"
-export { default as Subtitle } from "./Subtitle"
+export { default as MenuItem } from "./menuItem"
+export { default as Subtitle } from "./subtitle"

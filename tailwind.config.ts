@@ -6,20 +6,24 @@ const config: Config = {
         "./components/**/*.{ts,tsx}"
     ],
     theme: {
+        screens: {
+            'sm': '480px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+        },
         extend: {
             fontFamily: {
                 cairo: ["var(--font-cairo)"],
                 brother: ["var(--font-brother)"],
             },
             colors: {
-                chiliRed: {
-                    DEFAULT: 'rgb(231, 35, 35)'
-                },
-                chiliWhite: {
-                    DEFAULT: '#ffffff'
-                },
-                darkBlue: {
-                    DEFAULT: 'rgb(34, 35, 91)'
+                ChilisRed: "var(--color-ChilisRed)",
+                ChilisHoverButton: "var(--color-ChilisRedHover)",
+                chilisBlack: "#3b0000",
+                red: {
+                    700: "#b91c1c"
                 }
             }
 

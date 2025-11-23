@@ -5,6 +5,6 @@ interface TitleProps {
 
 export default function Title({ text, className }: TitleProps) {
     return (
-        <h2 className={`font-cairo text-4xl ${className || ''}`}>{text}</h2>
+        <h2 className={`font-cairo text-4xl font-semibold text-black ${className || ''}`}>{text}</h2>
     )
 }

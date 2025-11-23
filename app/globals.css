@@ -8,6 +8,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-ChilisRed: rgb(231, 35, 35);
+  --color-ChilisRedHover: rgb(185, 28, 28);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -127,12 +132,13 @@
   }
 }
 
+
 @layer utilities {
-  .bg-chiliRed {
-    background-color: rgb(231, 35, 35);
+  .buttonCili {
+    @apply bg-[rgb(231,35,35)] hover:bg-red-700 transition-colors duration-200;
   }
 
-  .text-chiliWhite {
+  /* .text-chiliWhite {
     color: #ffffff;
   }
 
@@ -142,10 +148,11 @@
 
   .bg-darkBlue {
     background-color: rgb(34, 35, 91)
-  }
+  } */
 }
 
 @layer components {
+
   .swiper-button-prev,
   .swiper-button-next {
     color: red !important;

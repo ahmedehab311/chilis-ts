@@ -24,7 +24,6 @@ export default function Hero() {
         >
             <div className="absolute inset-0 bg-black/30" />
 
-            {/* Swiper container ثابت الارتفاع */}
             <div className={`relative z-10 w-full ${sliderHeight} flex justify-center items-center`}>
                 {isLoading ? (
                     <div className="w-full h-full flex justify-center items-center text-white text-xl">
