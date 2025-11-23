@@ -2,6 +2,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import localFont from "next/font/local";
 import QueryProvider from "@/providers/queryProvider";
+import AuthProvider from "@/providers/authProvider";
 const cairo = localFont({
   src: "./fonts/cairo/Cairo-VariableFont_slnt,wght.ttf",
   weight: "200 900",
@@ -14,11 +15,6 @@ const brother = localFont({
   variable: "--font-brother",
 });
 
-
-// export const metadata = {
-//   title: "My Restaurant",
-//   description: "Restaurant project with Next.js + TS",
-// };
 export const metadata = {
   title: "Chilis",
   description: "Chilis Restaurant - Order online or check our menu",
@@ -41,7 +37,6 @@ export const metadata = {
   },
 };
 
-
 interface RootLayoutProps {
   children: ReactNode;
 }
@@ -51,8 +46,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className={`${cairo.variable} ${brother.variable}`}>
       <body>
         <QueryProvider>
-          {children}
-        </QueryProvider></body>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </QueryProvider>
+      </body>
+
     </html>
   );
 }

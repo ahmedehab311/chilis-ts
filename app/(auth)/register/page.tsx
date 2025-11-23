@@ -4,7 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema, registerSchemaType } from "@/schemas/auth/registerSchema";
 import { Title } from "@/app/components/typography";
 import { NameField, EmailField, PassField, PhoneField, SubmitButton, FooterAuth } from "../components/fields"
+import { useRouter } from "next/navigation";
 export default function Register() {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -16,8 +18,8 @@ export default function Register() {
     const handleRegister = async (data: registerSchemaType) => {
         console.log("register data:", data);
 
+        
     }
-
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
             <form
