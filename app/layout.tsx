@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import localFont from "next/font/local";
 import QueryProvider from "@/providers/queryProvider";
 import AuthProvider from "@/providers/authProvider";
+import { Toaster } from "react-hot-toast";
 const cairo = localFont({
   src: "./fonts/cairo/Cairo-VariableFont_slnt,wght.ttf",
   weight: "200 900",
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <QueryProvider>
           <AuthProvider>
+            <Toaster position="top-center" reverseOrder={false} />
             {children}
           </AuthProvider>
         </QueryProvider>

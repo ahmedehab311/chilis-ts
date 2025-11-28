@@ -144,11 +144,11 @@
 
   .text-chiliBlack {
     color: #000;
-  }
+  } */
 
   .bg-darkBlue {
     background-color: rgb(34, 35, 91)
-  } */
+  }
 }
 
 @layer components {

@@ -4,22 +4,26 @@ import { LogIn } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { MobileMenu, ToggleLang, DropdownMenuLinks } from "./index"
+import { useAuth } from "@/providers/authProvider";
+import { useRouter } from "next/navigation";
 export default function Header() {
     const [isArabic, setIsArabic] = useState<boolean>(false)
+    const { token, logout } = useAuth()
+    const router = useRouter();
     const navLinks = [
         { href: '/menu', label: "Menu" },
         { href: '/about', label: "About Us" },
         { href: '/locations', label: "Locations" },
         { href: '/contact', label: "Contact Us" }
     ]
-
     const navLinksIsTokenFound = [
         { href: '/profile', label: "profile" },
         { href: '/My-Orders', label: "My Orders" },
-        { href: '/', label: "Logout" },
+        { href: '/', label: "Logout", onClick: () => { logout(); router.push("/") } },
     ]
     const toggleLang = (): void => setIsArabic((prev) => !prev)
-    const token: boolean = false
+    const isLoggedIn = !!token;
+
 
     return (
         <header className="w-full border-b bg-darkBlue text- px-6 py-4 flex justify-between items-center ">
@@ -30,7 +34,7 @@ export default function Header() {
                     <Link key={link.href} href={link.href} className="text-white text-2xl flex ">{link.label}</Link>
                 ))}
             </nav>
-            {token ? (
+            {isLoggedIn ? (
                 <DropdownMenuLinks navLinksIsTokenFound={navLinksIsTokenFound} />
             ) : (
                 <Link href="/login" className="md:flex hidden">
@@ -42,7 +46,7 @@ export default function Header() {
             )
             }
             <MobileMenu
-                token={token}
+                token={isLoggedIn}
                 isArabic={isArabic}
                 toggleLang={toggleLang}
                 navLinksIsTokenFound={navLinksIsTokenFound}

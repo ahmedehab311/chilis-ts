@@ -6,11 +6,12 @@ import {
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Globe, LogIn, Menu, User } from "lucide-react";
+import { User } from "lucide-react";
 import Link from "next/link";
 interface NavLinks {
     href: string;
     label: string;
+    onClick?: () => void;
 }
 
 interface mobileMenuProps {
@@ -29,7 +30,11 @@ export default function DropdownMenuLinks({ navLinksIsTokenFound }: mobileMenuPr
             <DropdownMenuContent align="end">
                 {navLinksIsTokenFound.map((link) => (
                     <DropdownMenuItem asChild key={link.href} className="cur">
-                        <Link key={link.href} href={link.href}> {link.label}</Link>
+                        {link.onClick ? (
+                            <button onClick={link.onClick} className="w-full text-left">{link.label}</button>
+                        ) : (
+                            <Link href={link.href}>{link.label}</Link>
+                        )}
                     </DropdownMenuItem>
 
                 ))}

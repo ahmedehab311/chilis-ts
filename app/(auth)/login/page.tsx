@@ -4,7 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, loginSchemaType } from "@/schemas/auth/loginSchema";
 import { Title } from "@/app/components/typography";
 import { EmailField, PassField, SubmitButton, FooterAuth } from "../components/fields"
+import { useRouter } from "next/navigation";
+import { BASE_URL } from "@/api/setting";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useAuth } from "@/providers/authProvider";
+
 export default function Login() {
+    const router = useRouter();
+    const { login } = useAuth();
+
     const {
         register,
         handleSubmit,
@@ -14,7 +23,22 @@ export default function Login() {
     })
 
     const hangleLogin = async (data: loginSchemaType) => {
-        console.log("login data:", data);
+        const APIURL = `/login?&password=${data.password}&email=${data.email}`;
+        try {
+            const response = await axios.post(`${BASE_URL}${APIURL}`);
+            if (response?.data?.response === false) {
+                toast.error(response?.data?.messages || "login failed");
+            } else if (response?.data?.response) {
+                const token = response.data.data.token;
+                const userData = response.data.data.user;
+                login(token, userData);
+                toast.success("login successful");
+                router.push("/");
+            }
+        } catch (error: any) {
+            toast.error(error?.message || "An error occurred during registration");
+            console.error("Error registering: ", error);
+        }
 
     }
     return (
