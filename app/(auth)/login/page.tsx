@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, loginSchemaType } from "@/schemas/auth/loginSchema";
-import { Title } from "@/app/components/typography";
+import { SmallTitle, Title } from "@/app/components/typography";
 import { EmailField, PassField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
 import { BASE_URL } from "@/api/setting";
@@ -42,13 +42,12 @@ export default function Login() {
 
     }
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <form
                 onSubmit={handleSubmit(hangleLogin)}
-                className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+                className="w-full max-w-md bg-white px-4  rounded-xl shadow-lg border border-gray-200"
             >
-                <Title text="Sign in" className="mb-6 text-center" />
+                <SmallTitle text="Sign in" className="my-4 text-center" />
 
                 <EmailField register={register} errors={errors} />
                 <PassField register={register} errors={errors} />

@@ -5,7 +5,7 @@ interface ParagraphWrapperProps {
 }
 export default function ParagraphWrapper({ children, className }: ParagraphWrapperProps) {
     return (
-        <p className={`text-sm text-center mt-4 text-black font-normal ${className || ''}`}>
+        <p className={`text-gray-700 leading-relaxed   ${className || ''}`}>
             {children}
         </p>
     )

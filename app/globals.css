@@ -5,6 +5,34 @@
 
 /* @plugin "tailwindcss-animate";
 @import "tw-animate-css"; */
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/cairo/Cairo-VariableFont_slnt,wght.ttf");
+}
+
+/* @font-face {
+  font-family: "Brother";
+  src: url("/fonts/Brother 1816/Brothers\ Bold.ttf") format("truetype");
+} */
+
+@font-face {
+  font-family: "uniform";
+  src: url("/fonts/uiformFont/Uniform.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BlackFont";
+  src: url("/fonts/Dirk-Black.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tahoma";
+  src: url("/fonts/tahoma.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -132,11 +160,20 @@
   }
 }
 
+.buttonCili {
+  background-color: rgb(231, 35, 35);
+  transition: background-color 0.2s;
+}
+
+.buttonCili:hover {
+  background-color: rgb(185, 28, 28);
+}
+
 
 @layer utilities {
-  .buttonCili {
-    @apply bg-[rgb(231,35,35)] hover:bg-red-700 transition-colors duration-200;
-  }
+  /* .buttonCili {
+    @apply bg-[rgb(231, 35, 35)] hover:bg-red-700 transition-colors duration-200;
+  } */
 
   /* .text-chiliWhite {
     color: #ffffff;

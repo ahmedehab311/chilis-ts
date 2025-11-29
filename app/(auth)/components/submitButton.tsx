@@ -8,7 +8,7 @@ export default function SubmitButton({ isSubmitting, register }: SubmitButtonPro
         <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-2 rounded-lg transition disabled:opacity-50 buttonCili"
+            className="w-full  rounded-lg transition disabled:opacity-50 buttonCili"
         >
             {isSubmitting ? `${register ? "Loading..." : "Loading..."}` : `${register ? "Register" : "login"}`}
         </Button>

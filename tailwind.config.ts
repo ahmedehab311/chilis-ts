@@ -15,8 +15,11 @@ const config: Config = {
         },
         extend: {
             fontFamily: {
-                cairo: ["var(--font-cairo)"],
-                brother: ["var(--font-brother)"],
+                cairo: ["Cairo", "sans-serif"],
+                brother: ["Brother", "sans-serif"],
+                tahoma: ["Tahoma", "sans-serif"],
+                uniform: ["uniform", "sans-serif"],
+                blackfont: ["BlackFont", "sans-serif"],
             },
             colors: {
                 ChilisRed: "var(--color-ChilisRed)",

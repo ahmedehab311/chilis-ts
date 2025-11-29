@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema, registerSchemaType } from "@/schemas/auth/registerSchema";
-import { Title } from "@/app/components/typography";
+import { SmallTitle, Title } from "@/app/components/typography";
 import { NameField, EmailField, PassField, PhoneField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
 import { BASE_URL } from "@/api/setting";
@@ -42,12 +42,12 @@ export default function Register() {
 
     }
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 ">
             <form
                 onSubmit={handleSubmit(handleRegister)}
-                className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+                className="w-full max-w-md bg-white px-4 rounded-xl shadow-lg border border-gray-200"
             >
-                <Title text="Sign Up" className="mb-6 text-center" />
+                <SmallTitle text="Sign Up" className="my-4 text-center" />
                 {/* form */}
                 <NameField register={register} errors={errors} />
                 <EmailField register={register} errors={errors} />

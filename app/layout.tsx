@@ -4,17 +4,8 @@ import localFont from "next/font/local";
 import QueryProvider from "@/providers/queryProvider";
 import AuthProvider from "@/providers/authProvider";
 import { Toaster } from "react-hot-toast";
-const cairo = localFont({
-  src: "./fonts/cairo/Cairo-VariableFont_slnt,wght.ttf",
-  weight: "200 900",
-  variable: "--font-cairo",
-});
-
-const brother = localFont({
-  src: "./fonts/Brother 1816/Brothers Bold.ttf",
-  weight: "700",
-  variable: "--font-brother",
-});
+import Header from "./components/partials/header/header";
+import Footer from "./components/partials/footer/footer";
 
 export const metadata = {
   title: "Chilis",
@@ -44,12 +35,15 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${cairo.variable} ${brother.variable}`}>
+    <html lang="en" >
       <body>
+
         <QueryProvider>
           <AuthProvider>
             <Toaster position="top-center" reverseOrder={false} />
-            {children}
+            <Header />
+            <main>{children}</main>
+            <Footer />
           </AuthProvider>
         </QueryProvider>
       </body>

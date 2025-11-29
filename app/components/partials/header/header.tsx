@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MobileMenu, ToggleLang, DropdownMenuLinks } from "./index"
 import { useAuth } from "@/providers/authProvider";
 import { useRouter } from "next/navigation";
+
 export default function Header() {
     const [isArabic, setIsArabic] = useState<boolean>(false)
     const { token, logout } = useAuth()
@@ -28,7 +29,7 @@ export default function Header() {
     return (
         <header className="w-full border-b bg-darkBlue text- px-6 py-4 flex justify-between items-center ">
             <ToggleLang isArabic={isArabic} toggleLang={toggleLang} />
-
+            
             <nav className="hidden md:flex gap-16 text-sm font-medium ">
                 {navLinks.map((link) => (
                     <Link key={link.href} href={link.href} className="text-white text-2xl flex ">{link.label}</Link>
