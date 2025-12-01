@@ -1,10 +1,10 @@
 interface SubtitleProps {
-    name: string;
+    text: string;
     className?: string
 }
 
-export default function Subtitle({ name, className }: SubtitleProps) {
+export default function Subtitle({ text, className }: SubtitleProps) {
     return (
-        <h4 className={`font-brother text-2xl md:text-3xl font-semibold  ${className || ''}`}>{name}</h4>
+        <h4 className={`font-BlackFont  text-2xl md:text-2xl font-bold  ${className || ''}`}>{text}</h4>
     )
 }

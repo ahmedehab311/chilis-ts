@@ -6,7 +6,7 @@ import AuthProvider from "@/providers/authProvider";
 import { Toaster } from "react-hot-toast";
 import Header from "./components/partials/header/header";
 import Footer from "./components/partials/footer/footer";
-
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 export const metadata = {
   title: "Chilis",
   description: "Chilis Restaurant - Order online or check our menu",
@@ -36,17 +36,18 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" >
-      <body>
-
+      <body className="flex flex-col min-h-screen">
         <QueryProvider>
           <AuthProvider>
             <Toaster position="top-center" reverseOrder={false} />
             <Header />
-            <main>{children}</main>
+            <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
           </AuthProvider>
+          <ReactQueryDevtools />
         </QueryProvider>
       </body>
+
 
     </html>
   );

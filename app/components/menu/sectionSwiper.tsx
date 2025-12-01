@@ -2,24 +2,43 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { BASE_URL_images } from "@/api/setting";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Section } from "./types";
+import Image from "next/image";
+import { Subtitle } from "../typography";
 
-export default function SectionSwiper({ sections, onSelect }: any) {
+interface SectionSwiperType {
+  sections: Section[] | undefined;
+  onSelect: (id: null | null) => void
+}
+export default function SectionSwiper({ sections, onSelect }: SectionSwiperType) {
   return (
-    <Swiper slidesPerView={3} spaceBetween={10}>
-      {sections.map((section: any) => (
+    <Swiper slidesPerView={4} modules={[Navigation, Autoplay]} spaceBetween={10} navigation={true}
+      loop={true}
+      breakpoints={{
+        1280: { slidesPerView: 4 }, // xl screens
+        1024: { slidesPerView: 3 }, // lg screens
+        768: { slidesPerView: 2 },  // md screens
+        0: { slidesPerView: 1 },    // sm screens
+      }}>
+      {sections?.map((section: any) => (
         <SwiperSlide key={section.id}>
-          <button
+          <div
             onClick={() => onSelect(section.id)}
-            className="w-full rounded-xl bg-white shadow p-2 hover:shadow-lg transition"
+            className="w-full  rounded-xl bg-darkBlue shadow p-4 hover:shadow-lg transition cursor-pointer"
           >
-            <img
-              src={section.image}
-              className="w-full h-32 object-cover rounded-md"
+            <Subtitle text={section.name_en} className=" mb-4 uppercase text-white text-center " />
+
+            <Image
+              width={390}
+              height={261}
+              alt="sectionImage"
+              src={`${BASE_URL_images}${section?.image}`}
+              className="w-full h-[261px] object-cover rounded-md"
             />
-            <p className="text-center font-semibold mt-2">
-              {section.name}
-            </p>
-          </button>
+
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

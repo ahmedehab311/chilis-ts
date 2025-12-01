@@ -2,12 +2,12 @@
 import { useState, useEffect, use } from "react";
 interface StatusHandlerProps {
     isOnline?: boolean;
-    isLoading?: boolean;
-    error?: any;
-    isEmpty?: boolean;
-    emptyMessage?: string;
-    loadingMessage?: string;
-    errorMessage?: string;
+    isLoading: boolean;
+    error: any;
+    isEmpty: boolean;
+    emptyMessage: string;
+    loadingMessage: string;
+    errorMessage: string;
     children: React.ReactNode;
     isTable?: boolean;
     colSpan?: number;
@@ -52,7 +52,7 @@ const StatusHandler = ({
             );
         } else {
             return (
-                <div className={`w-full flex justify-center items-center py-3 text-lg ${color} capitalize`}>
+                <div className={`w-full flex justify-center items-center  text-lg ${color} capitalize`}>
                     {message}
                 </div>
             );
