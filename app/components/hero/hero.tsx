@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchIamgeSlider } from './apisSliderHero'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";   // ← مهم جدًا
+import { Autoplay, Navigation } from "swiper/modules";  
 import img from '@/public/images/bigBackground.png'
 import "swiper/css";
 import "swiper/css/navigation";

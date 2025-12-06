@@ -49,7 +49,7 @@ export default function Register() {
             >
                 <SmallTitle text="Sign Up" className="my-4 text-center" />
                 {/* form */}
-                <NameField register={register} errors={errors} />
+                <NameField register={register} errors={errors} name="name" />
                 <EmailField register={register} errors={errors} />
                 <PassField register={register} errors={errors} />
                 <PhoneField register={register} errors={errors} />
