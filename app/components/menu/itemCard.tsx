@@ -1,4 +1,3 @@
-import { BASE_URL_images } from "@/api/setting";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
@@ -9,7 +8,7 @@ export default function ItemCard({ item }: { item: any }) {
         width={200}
         height={200}
         alt="itemImage"
-        src={`${BASE_URL_images}${item?.image}`}
+        src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGES}${item?.image}`}
         className="w-full h-48 object-cover"
       />
 

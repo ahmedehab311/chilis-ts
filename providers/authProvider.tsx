@@ -13,6 +13,7 @@ const AuthContext = createContext<AuthContextType | null>(null)
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
     const [token, setToken] = useState<string | null>(null)
     const [user, setUser] = useState<any | null>(null)
+    console.log("user", user);
 
     useEffect(() => {
         const savedToken = localStorage.getItem("token")

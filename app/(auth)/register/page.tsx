@@ -5,7 +5,6 @@ import { registerSchema, registerSchemaType } from "@/schemas/auth/registerSchem
 import { SmallTitle, Title } from "@/app/components/typography";
 import { NameField, EmailField, PassField, PhoneField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
-import { BASE_URL } from "@/api/setting";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useAuth } from "@/providers/authProvider";
@@ -25,7 +24,7 @@ export default function Register() {
     const handleRegister = async (data: registerSchemaType) => {
         const APIURL = `/register?first_name=${data.name}&email=${data.email}&password=${data.password}&phone=${data.phone}`;
         try {
-            const response = await axios.post(`${BASE_URL}${APIURL}`);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}${APIURL}`);
             if (response?.data?.response === false) {
                 toast.error(response?.data?.messages?.[0] || "Registration failed");
             } else if (response?.data?.response) {

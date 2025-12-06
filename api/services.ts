@@ -1,4 +1,4 @@
-import { BASE_URL } from "./setting";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const APIURLMenu = `${BASE_URL}/menu/2/1`;
 

@@ -18,7 +18,6 @@ export default function NameField<T extends FieldValues>({
             <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                 <Input
-
                     type="text"
                     placeholder="Enter your name"
                     {...register(name)}

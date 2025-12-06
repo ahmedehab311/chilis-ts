@@ -5,7 +5,6 @@ import { loginSchema, loginSchemaType } from "@/schemas/auth/loginSchema";
 import { SmallTitle, Title } from "@/app/components/typography";
 import { EmailField, PassField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
-import { BASE_URL } from "@/api/setting";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useAuth } from "@/providers/authProvider";
@@ -25,7 +24,7 @@ export default function Login() {
     const hangleLogin = async (data: loginSchemaType) => {
         const APIURL = `/login?&password=${data.password}&email=${data.email}`;
         try {
-            const response = await axios.post(`${BASE_URL}${APIURL}`);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}${APIURL}`);
             if (response?.data?.response === false) {
                 toast.error(response?.data?.messages || "login failed");
             } else if (response?.data?.response) {

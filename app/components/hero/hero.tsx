@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchIamgeSlider } from './apisSliderHero'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";  
+import { Autoplay, Navigation } from "swiper/modules";
 import img from '@/public/images/bigBackground.png'
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from 'next/image';
-import { BASE_URL_images } from '@/api/setting';
+// import { BASE_URL_images } from '@/api/setting';
 
 export default function Hero() {
     const {
@@ -47,7 +47,7 @@ export default function Hero() {
                                 <Image
                                     width={300}
                                     height={300}
-                                    src={`${BASE_URL_images}${item.image}`}
+                                    src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGES}${item.image}`}
                                     className="w-auto h-full object-contain rounded-xl shadow-lg"
                                     alt=""
                                 />

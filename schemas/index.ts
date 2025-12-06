@@ -13,5 +13,5 @@ export const passSchema = {
 }
 
 export const phoneSchema = {
-    phone: z.string().min(13, "phone must be at least 13 number")
+    phone: z.string().min(5, "phone must be at least 5 number")
 }

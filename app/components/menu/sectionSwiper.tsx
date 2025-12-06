@@ -2,7 +2,6 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { BASE_URL_images } from "@/api/setting";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Section } from "./types";
 import Image from "next/image";
@@ -34,7 +33,7 @@ export default function SectionSwiper({ sections, onSelect }: SectionSwiperType)
               width={390}
               height={261}
               alt="sectionImage"
-              src={`${BASE_URL_images}${section?.image}`}
+              src={`${process.env.NEXT_PUBLIC_BASE_URL_IMAGES}${section?.image}`}
               className="w-full h-[261px] object-cover rounded-md"
             />
 
