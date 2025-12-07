@@ -6,13 +6,18 @@ import { SmallTitle, Title } from "@/app/components/typography";
 import { EmailField, PassField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { useAuth } from "@/providers/authProvider";
+import { useEffect } from "react";
 
 export default function Login() {
     const router = useRouter();
-    const { login } = useAuth();
-
+    const { login, setToken, setUser } = useAuth();
+    useEffect(() => {
+        setToken(null);
+        setUser(null); localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    }, [])
     const {
         register,
         handleSubmit,

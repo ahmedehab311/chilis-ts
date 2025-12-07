@@ -6,7 +6,7 @@ import { SmallTitle, Title } from "@/app/components/typography";
 import { NameField, EmailField, PassField, PhoneField, SubmitButton, FooterAuth } from "../components/fields"
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { useAuth } from "@/providers/authProvider";
 export default function Register() {
     const router = useRouter();

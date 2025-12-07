@@ -3,10 +3,10 @@ import { ReactNode } from "react";
 import localFont from "next/font/local";
 import QueryProvider from "@/providers/queryProvider";
 import AuthProvider from "@/providers/authProvider";
-import { Toaster } from "react-hot-toast";
 import Header from "./components/partials/header/header";
 import Footer from "./components/partials/footer/footer";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ToastContainer, toast } from 'react-toastify';
 export const metadata = {
   title: "Chilis",
   description: "Chilis Restaurant - Order online or check our menu",
@@ -39,7 +39,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className="flex flex-col min-h-screen">
         <QueryProvider>
           <AuthProvider>
-            <Toaster position="top-center" reverseOrder={false} />
+
+            <ToastContainer autoClose={3000}/>
+            
             <Header />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />
